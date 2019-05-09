@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" doc:name="HTTP Listener Configuration">
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+    <flow name="mule-maven-demoFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/hello" doc:name="HTTP"/>
+        <logger level="INFO" doc:name="Logger" doc:id="c54c7320-2ae3-43cc-a6eb-0d32144d808b" message="received request: #[attributes.requestPath]"/>
+		<set-payload value="#['Hello from Mule']" mimeType="text/plain" doc:name="Set Payload"/>
+    </flow>
+</mule>
