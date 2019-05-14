@@ -12,6 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
     <flow name="mule-maven-demoFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/hello" doc:name="HTTP"/>
         <logger level="INFO" doc:name="Logger" doc:id="c54c7320-2ae3-43cc-a6eb-0d32144d808b" message="received request: #[attributes.requestPath]"/>
-		<set-payload value="#['Hello from Mule4 cloudhub']" mimeType="text/plain" doc:name="Set Payload"/>
+		<set-payload value="#['Hello from Mule']" mimeType="text/plain" doc:name="Set Payload"/>
     </flow>
 </mule>
