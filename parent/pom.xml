@@ -8,6 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${api.name}</name>
+	
 	 <modules>
         <!-- Add project modules -->
    <!-- 	<module>VMWJiveServices</module>
